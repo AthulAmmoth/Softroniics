@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        #container {
+            display: flex;
+        }
+
+        #sidebar {
+            height: 100vh;
+            width: 200px;
+            background-color: #4CAF50;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .item {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            color: #4CAF50;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .item:hover {
+            background-color: #e0e0e0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .ordermain ,.discountmain ,.vegetable ,.nonvegetable,.beverage,.category{
+            display: none;
+            padding: 20px;
+
+        }
+
+        .main {
+            flex: 1;
+        }
+
+        .ordermain table {
+            margin-top: 20px;
+        }
+
+        .ordermain button {
+            padding: 5px;
+            margin: 2px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .ordermain button:hover {
+            background-color: #a0454c;
+        }
+        .sidebarcategory{
+            display: none;
+        }
+        #newcategory{
+            display:none;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="sidebar">
+            <div class="item" id="addfood">ADD FOOD</div>
+            <div class="sidebarcategory">
+            <div class="item" id="veg">veg</div>
+            <div class="item" id="nonveg">NON veg</div>
+            <div class="item" id="beverage">beverage</div>
+            <div class="item" id="newcategory"></div>
+            <div class="item" id="addcategory">ADD Category</div>
+            </div>
+            <div class="item" id="order">Orders</div>
+            <div class="item" id="discount">Discount</div>
+        </div>
+
+        <div class="main">
+            <div id="sidebarclose">
+                <input type="button" value="X">
+            </div>
+            
+            <div class="nonvegetable">
+                <table>
+                    <tr>
+                        <th>Sl.No</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Image</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Biriyani</td>
+                        <td>100</td>
+                        <td><img src="Biriyani.jpg" alt="Biriyani" width="150"></td>
+                        <td>Spicy special thalaserry biriyani</td>
+                    </tr>
+                </table>
+                <div class="newfood">
+                    <form id="new">
+                        <input type="text" name="name" id="foodname" placeholder="Food Name">
+                        <input type="text" name="name" id="Price" placeholder="Price">
+                        <input type="file" name="name" id="image" placeholder="Image">
+                        <input type="Description" name="name" id="Description" placeholder="Description">
+                        <input type="submit" value="ADD" class="foodsubmit">
+
+                    </form>
+                </div>
+            </div>
+            <div class="vegetable">
+                <table>
+                    <tr>
+                        <th>Sl.No</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Image</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>pizza</td>
+                        <td>150</td>
+                        <td><img src="pizza.jpeg" alt="Pizza" width="150"></td>
+                        <td>Dominozz tasty pizza</td>
+                    </tr>
+                </table>
+                <div class="newfood">
+                    <form id="new">
+                        <input type="text" name="name" id="foodname" placeholder="Food Name">
+                        <input type="text" name="name" id="Price" placeholder="Price">
+                        <input type="file" name="name" id="image" placeholder="Image">
+                        <input type="Description" name="name" id="Description" placeholder="Description">
+                        <input type="submit" value="ADD" class="foodsubmit">
+                    </form>
+                </div>
+            </div>
+            <div class="beverage">
+                <table>
+                    <tr>
+                        <th>Sl.No</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Image</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Lime</td>
+                        <td>10</td>
+                        <td><img src="lime-juice.jpg" alt="Lime" width="150"></td>
+                        <td>Fresh mint lime</td>
+                    </tr>
+                    <tr>
+                        <td class="column">
+
+                        </td>
+                    </tr>
+                </table>
+                <div class="newfood">
+                    <form id="new">
+                        <input type="text" name="name" id="foodname" placeholder="Food Name">
+                        <input type="text" name="name" id="Price" placeholder="Price">
+                        <input type="file" name="name" id="image" placeholder="Image">
+                        <input type="Description" name="name" id="Description" placeholder="Description">
+                        <input type="submit" value="ADD" class="foodsubmit">
+
+                    </form>
+                </div>
+            </div>
+            <div class="category">
+                <input type="text" id="categoryname">
+                <input type="button" value="ADD" id="categorysubmit">
+            </div>
+            <div class="ordermain">
+                <table>
+                    <tr>
+                        <th>Sl.No</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Biriyani</td>
+                        <td>1</td>
+                        <td>
+                            <button>Started</button>
+                            <button>Packed</button>
+                            <button>Finished</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="discountmain">
+                <table>
+                    <tr>
+                        <th>Sl.No</th>
+                        <th>Name</th>
+                        <th>Percentage</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Action</th>
+
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Biriyani</td>
+                        <td>10%</td>
+                        <td>21/12/2023</td>
+                        <td>12Pm</td>
+                        <td><button>Delete</button></td>                        
+                    </tr>
+                </table> 
+                <div id="adddiscount">
+                    <button>Add Discount</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    $(function(){
+        $("#sidebarclose").click(function(){
+            $("#sidebar").toggle();
+        });
+    
+        $("#addfood").click(function(){
+            $(".sidebarcategory").show() 
+            $(".ordermain, .discountmain, .nonvegetable, .vegetable, .beverage, .category").hide();
+        });
+    
+        $("#nonveg, #veg, #beverage, #addcategory, #order, #discount").click(function(){
+            $(".ordermain, .discountmain, .nonvegetable, .vegetable, .beverage, .category").hide();
+        });
+    
+        $("#nonveg").click(function(){
+            $(".nonvegetable").show();
+        });
+    
+        $("#veg").click(function(){
+            $(".vegetable").show();
+        });
+    
+        $("#beverage").click(function(){
+            $(".beverage").show();
+        });
+    
+        $("#addcategory").click(function(){
+            $(".category").show();
+        });
+    
+        $("#order").click(function(){
+            $(".ordermain").show();
+        });
+    
+        $("#discount").click(function(){
+            $(".discountmain").show();
+        });
+    
+        $("#categorysubmit").click(function(){
+            let categoryName = $("#categoryname").val();
+            $("#newcategory").html(categoryName).show();
+        });
+    
+        $(".foodsubmit").click(function(event){
+            event.preventDefault();
+            let foodName = $("#foodname").val;
+            console.log(foodname,'foodname');
+            let foodPrice = $("#price").val();
+            let foodImage = $("#image").val();
+            let foodDescription = $("#description").val();
+            
+            let values='<tr>'
+                values+='<td></td>'
+                values+='<td>'+foodname+'</td>'
+                values+='<td>'+foodPrice+'</td>'
+                values+='<td>'+foodImage+'</td>'
+                values+='<td>'+foodDescription+'</td>'
+                values+='</tr>'
+                console.log(values);
+            $("table").append(values);
+          
+        });
+    });
+    </script>
+</body>
+</html>
